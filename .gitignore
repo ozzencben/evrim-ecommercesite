@@ -1,12 +1,19 @@
-# Django
-*.pyc
-__pycache__/
+# Sanal ortam klasörü
+myenv/
+venv/
+
+# SQLite veritabanı
 db.sqlite3
-/media/
-.env
 
-# VSCode
+# __pycache__ ve diğer geçici Python dosyaları
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VSCode veya IDE dosyaları
 .vscode/
+.idea/
 
-# macOS
-.DS_Store
+# Ortam değişkenleri dosyası (eğer varsa)
+.myenv
