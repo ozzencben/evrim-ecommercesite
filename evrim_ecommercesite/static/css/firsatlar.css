@@ -1,0 +1,64 @@
+/* Fırsatlar kutusu */
+
+.hero {
+    background-color: #606c38;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.offers-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #fefae0;
+}
+
+.offers-box {
+    max-width: 800px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-left: 6px solid #bc6c25;
+}
+
+.offers-box h2 {
+    color: #606c38;
+    margin-bottom: 20px;
+}
+
+.offer-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.offer-list li {
+    background-color: #f0efeb;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.discover-button {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: #bc6c25;
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.discover-button:hover {
+    background-color: #a45d1f;
+}

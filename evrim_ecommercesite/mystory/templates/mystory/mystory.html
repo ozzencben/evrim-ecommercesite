@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load static %}
+
+{% block title %}Sepetim{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/mystory.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <h1>Hikayemiz</h1>
+</section>
+
+<section class="story-container">
+    <div class="story-box">
+        <p>30 yılı aşkın süredir toprağın dilinden anlayan, emeğini doğaya adamış iki çiftçiyiz. Yıllar boyunca kendi
+            soframız için en doğalından ne yetiştiyse, onu sevdiklerimizle paylaştık. Şimdi bu bereketi daha fazla
+            insanla buluşturmak için yola çıktık.</p>
+
+        <p><strong>Evrim Köy Ürünleri</strong>, sadece bir satış platformu değil; bizim emeğimizin, alın terimizin ve
+            köy yaşantısının içtenliğinin bir yansımasıdır. Zeytinyağından salçaya, zeytinden baharata kadar her ürün,
+            kendi ellerimizle hazırladığımız, katkısız ve güvenilir gıdalardan oluşuyor.</p>
+
+        <p>Bu proje, yılların birikimini ve üretim tecrübemizi sizlerle paylaşma hayalimizin ilk adımı. Sofralarınıza
+            doğallık getirmek, çocuklarınıza güvenle yedirebileceğiniz lezzetleri sunmak istiyoruz.</p>
+
+        <p>Doğadan gelen bu lezzet yolculuğuna bizimle çıktığınız için teşekkür ederiz.<br><strong>Sofranıza misafir
+                olmaktan onur duyarız.</strong></p>
+    </div>
+</section>
+
+{% endblock %}

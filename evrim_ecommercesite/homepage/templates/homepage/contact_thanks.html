@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/contact_thanks.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="thank-you-section">
+    <div class="thank-you-content">
+        <h2>Teşekkürler!</h2>
+        <p>Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.</p>
+        <a href="/" class="btn">Ana Sayfaya Dön</a>
+    </div>
+</section>
+{% endblock %}

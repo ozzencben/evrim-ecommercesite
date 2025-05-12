@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+{% endblock %}
+
+{% block title %} Kayıt Ol {% endblock %}
+
+{% block content %}
+<div class="register_form">
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="form_cell">
+            <label for="username" class="form-label">Kullanıcı Adı :</label>
+            <input type="text" class="form-control" name="username" placeholder="Kullanıcı adınız" required>
+        </div>
+
+        <div class="form_cell">
+            <label for="email" class="form-label">Email :</label>
+            <input type="email" class="form-control" name="email" placeholder="Email adresiniz" required>
+        </div>
+
+        <div class="form_cell">
+            <label for="firstname" class="form-label">Ad :</label>
+            <input type="text" class="form-control" name="firstname" placeholder="Adınız">
+        </div>
+
+        <div class="form_cell">
+            <label for="lastname" class="form-label">Soyad :</label>
+            <input type="text" class="form-control" name="lastname" placeholder="Soyadınız">
+        </div>
+
+        <div class="form_cell">
+            <label for="password1" class="form-label">Şifre :</label>
+            <input type="password" class="form-control" name="password1" placeholder="Şifreniz" required>
+        </div>
+
+        <div class="form_cell">
+            <label for="password2" class="form-label">Şifre Tekrar :</label>
+            <input type="password" class="form-control" name="password2" placeholder="Şifrenizi tekrar girin" required>
+        </div>
+
+        <button type="submit" class="liquid-button">Kayıt Ol</button>
+    </form>
+
+    <p>Zaten bir hesabınız var mı? <a href="{% url 'login' %}">Giriş yap</a></p>
+</div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

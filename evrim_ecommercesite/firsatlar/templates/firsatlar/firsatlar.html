@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/firsatlar.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Fırsatlar</h1>
+</section>
+
+<section class="offers-container">
+    <div class="offers-box">
+        <h2>🌿 Doğallıkta İndirim Var!</h2>
+        <p>Sofranıza köy lezzetlerini taşırken, cebinizi de düşünüyoruz. Sezonluk mahsullerden, sınırlı stoklara, özel
+            kampanyalara kadar birçok fırsatı sizin için hazırladık.</p>
+
+        <ul class="offer-list">
+            <li>✔ <strong>Bu Ayın Sürprizi:</strong> 2 adet 1 litrelik zeytinyağı alana, 250 gr doğal sabun
+                <strong>HEDİYE!</strong></li>
+            <li>✔ Tüm <strong>baharatlarda %15 indirim</strong>!</li>
+            <li>✔ İlk siparişinize özel <strong>%10 hoş geldin indirimi</strong>!</li>
+        </ul>
+
+        <p><strong>📦 Ücretsiz Kargo:</strong> 500 TL üzeri siparişlerde geçerlidir.</p>
+        <p><strong>💬 Fırsatları kaçırmamak için bizi Instagram’dan ve WhatsApp’tan takip edin!</strong></p>
+
+        <a href="{% url 'product' %}" class="discover-button">Şimdi Keşfet</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+{% endblock %}
+
+{% block title %} Ürünler {% endblock %}
+
+{% block content %}
+
+<div class="product-container">
+    <!-- Sol Kategori Listesi -->
+    <div class="category-list">
+        <div class="categories">
+            <h3>Kategoriler</h3>
+            <ul>
+                <li class="{% if not selected_category %}active-category{% endif %}">
+                    <a href="{% url 'product' %}"
+                        class="{% if not selected_category %}selected-category{% else %}unselected-category{% endif %}">
+                        Tümü
+                    </a>
+                </li>
+                {% for category in categories %}
+                <li class="{% if selected_category == category %}active-category{% endif %}">
+                    <a href="{% url 'product_by_category' category.slug %}"
+                        class="{% if selected_category == category %}selected-category{% else %}unselected-category{% endif %}">
+                        {{ category.name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="volume">
+            <h3>Miktar</h3>
+            <ul>
+                <li class="{% if selected_quantity == '500g' %}active-category{% endif %}">
+                    <a href="{% url 'product_by_quantity' 'g' 500 %}"
+                        class="{% if selected_quantity == '500g' %}selected-category{% else %}unselected-category{% endif %}">
+                        500g
+                    </a>
+                </li>
+                <li class="{% if selected_quantity == '1000g' %}active-category{% endif %}">
+                    <a href="{% url 'product_by_quantity' 'g' 1000 %}"
+                        class="{% if selected_quantity == '1000g' %}selected-category{% else %}unselected-category{% endif %}">
+                        1000g
+                    </a>
+                </li>
+                <li class="{% if selected_quantity == '2500g' %}active-category{% endif %}">
+                    <a href="{% url 'product_by_quantity' 'g' 2500 %}"
+                        class="{% if selected_quantity == '2500g' %}selected-category{% else %}unselected-category{% endif %}">
+                        2500g
+                    </a>
+                </li>
+                <li class="{% if selected_quantity == '5000g' %}active-category{% endif %}">
+                    <a href="{% url 'product_by_quantity' 'g' 5000 %}"
+                        class="{% if selected_quantity == '5000g' %}selected-category{% else %}unselected-category{% endif %}">
+                        5000g
+                    </a>
+                </li>
+                <li class="{% if selected_quantity == '500ml' %}active-category{% endif %}">
+                    <a href="{% url 'product_by_quantity' 'ml' 500 %}"
+                        class="{% if selected_quantity == '500ml' %}selected-category{% else %}unselected-category{% endif %}">
+                        500ml
+                    </a>
+                </li>
+                <li class="{% if selected_quantity == '1000ml' %}active-category{% endif %}">
+                    <a href="{% url 'product_by_quantity' 'ml' 1000 %}"
+                        class="{% if selected_quantity == '1000ml' %}selected-category{% else %}unselected-category{% endif %}">
+                        1000ml
+                    </a>
+                </li>
+                <li class="{% if selected_quantity == '2500ml' %}active-category{% endif %}">
+                    <a href="{% url 'product_by_quantity' 'ml' 2500 %}"
+                        class="{% if selected_quantity == '2500ml' %}selected-category{% else %}unselected-category{% endif %}">
+                        2500ml
+                    </a>
+                </li>
+                <li class="{% if selected_quantity == '5000ml' %}active-category{% endif %}">
+                    <a href="{% url 'product_by_quantity' 'ml' 5000 %}"
+                        class="{% if selected_quantity == '5000ml' %}selected-category{% else %}unselected-category{% endif %}">
+                        5000ml
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Ürünler -->
+    <div class="products-list">
+        {% for product in products %}
+        <div class="product-card">
+            <a href="{% url 'product_detail' product.slug %}" class="product-link">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                <h4>{{ product.name }}</h4>
+                <p>{{ product.description|truncatewords:15 }}</p>
+                <p><strong>₺{{ product.price }}</strong></p>
+                <p><strong>Miktar:</strong> {{ product.quantity }}{{ product.unit }}</p>
+                <p>Stok: {{ product.stock }}</p>
+            </a>
+            <form action="{% url 'add_to_cart' product.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="add-to-cart-button">Sepete Ekle</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

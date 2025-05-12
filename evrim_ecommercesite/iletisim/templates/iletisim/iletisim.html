@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/iletisim.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>İletişim</h1>
+</section>
+
+<section class="contact-container">
+    <div class="contact-form">
+        <h2>Bizimle İletişime Geçin</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Gönder</button>
+        </form>
+    </div>
+
+    <div class="contact-info">
+        <h2>İletişim Bilgileri</h2>
+        <p><strong>Adres:</strong> Örnek Köyü, Tarla Mahallesi, 12345 Anadolu</p>
+        <p><strong>Telefon:</strong> 0555 123 45 67</p>
+        <p><strong>E-posta:</strong> info@evrimkoyurunleri.com</p>
+
+        <div class="social-icons">
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="WhatsApp">💬</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

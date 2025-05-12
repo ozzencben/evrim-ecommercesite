@@ -1,0 +1,47 @@
+/* Genel ayarlar */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Başlık kısmı */
+.hero {
+    background-color: #606c38;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+/* Hikaye kutusu */
+.story-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.story-box {
+    max-width: 800px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-left: 6px solid #bc6c25;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .story-box {
+        padding: 20px;
+    }
+}

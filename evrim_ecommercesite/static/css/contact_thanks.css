@@ -1,0 +1,58 @@
+/* Genel stil ayarları */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Teşekkür mesajı için ana alan */
+.thank-you-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f9f4;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Teşekkür mesajının içeriği */
+.thank-you-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Başlık stilini düzenleme */
+.thank-you-content h2 {
+    font-size: 2.5rem;
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+/* Mesaj metni */
+.thank-you-content p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Dönüş butonunun stili */
+.thank-you-content .btn {
+    background-color: #27ae60;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.thank-you-content .btn:hover {
+    background-color: #2ecc71;
+}

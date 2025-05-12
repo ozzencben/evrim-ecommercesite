@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load static %}
+
+{% block title %}Sepetim{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/cart_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="cart-container">
+    <h2>Sepetim</h2>
+
+    {% if cart_items %}
+    <div class="cart-items">
+        {% for item in cart_items %}
+        <div class="cart-item">
+            <div class="item-image">
+                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+            </div>
+            <div class="item-details">
+                <div class="item-info">
+                    <h3>{{ item.product.name }}</h3>
+                    <p class="unit"><small>{{ item.product.quantity }}{{ item.product.unit }}</small></p>
+                    <p class="price">₺{{ item.product.price }} x {{ item.quantity }}</p>
+                    <p class="subtotal">Ara Toplam: ₺{{ item.total_price|floatformat:2 }}</p>
+                </div>
+                <div class="item-actions">
+                    <form action="{% url 'update_cart_quantity' item.product.id 'increase' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-green">+</button>
+                    </form>
+                    <span class="quantity">{{ item.quantity }}</span>
+                    <form action="{% url 'update_cart_quantity' item.product.id 'decrease' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-red">-</button>
+                    </form>
+                    <a href="{% url 'remove_from_cart' item.product.id %}" class="btn btn-gray">Sil</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="cart-summary">
+        <h4>Toplam: ₺{{ total_price|floatformat:2 }}</h4>
+        <a href="{% url 'clear_cart' %}" class="btn btn-yellow">Sepeti Boşalt</a>
+    </div>
+    {% else %}
+    <p class="empty-message">Sepetiniz boş.</p>
+    {% endif %}
+</div>
+{% endblock %}
